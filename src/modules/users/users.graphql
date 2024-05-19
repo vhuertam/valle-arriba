@@ -1,0 +1,51 @@
+scalar Date
+
+type Query {
+    getUsers: [User]
+}
+
+type Mutation {
+    createUser(input: UserData): User
+    editUser(id: ID, input: UserDataEdit): User
+    blockUser(id: ID): User
+    unblockUser(id: ID): User
+    deleteUser(id: ID): User
+    changePassword(id: ID, password: String): User
+}
+
+type User {
+    id: ID!
+    rut: String!
+    name: String!
+    email: String!
+    password: String!
+    passwordSalt: String!
+    phone: String!
+    position: String!
+    state: Boolean!
+    role: Role
+    createdAt: Date!
+    updatedAt: Date!
+    deletedAt: Date!
+}
+
+input UserData {
+    rut: String!
+    name: String!
+    email: String!
+    password: String!
+    phone: String!
+    position: String!
+    idRole: String
+}
+
+input UserDataEdit {
+    rut: String!
+    name: String!
+    email: String!
+    phone: String!
+    position: String!
+    idRole: String
+}
+
+

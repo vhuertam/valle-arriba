@@ -1,0 +1,32 @@
+scalar Date
+
+type Query {
+    getStoragePonds: [StoragePond]
+}
+
+type Mutation {
+    createStoragePond(input: StoragePondData): StoragePond
+    editStoragePond(id: ID, input: StoragePondData): StoragePond
+    deleteStoragePond(id: ID): StoragePond
+    changeStatusStoragePond(id: ID): StoragePond
+    emptyStoragePond(id: ID): StoragePond
+    addLiters(id: ID, liters: Float): StoragePond
+
+}
+
+type StoragePond {
+    id: ID!
+    idStoragePond: String!
+    capacitance: Float!
+    status: Boolean!
+    currentLiters: Float
+    createdAt: Date!
+    updatedAt: Date!
+    deletedAt: Date!
+}
+
+input StoragePondData {
+    idStoragePond: String!
+    capacitance: Float!
+    currentLiters: Float
+}

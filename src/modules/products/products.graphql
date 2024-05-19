@@ -1,0 +1,27 @@
+scalar Date
+
+type Query {
+    getProducts: [Product]
+}
+
+type Mutation {
+    createProduct(input: ProductData): Product
+    editProduct(id: ID, input: ProductData): Product
+    deleteProduct(id: ID): Product
+}
+
+type Product {
+    id: ID!
+    idProduct: String!
+    name: String!
+    days: Int!
+    createdAt: Date!
+    updatedAt: Date!
+    deletedAt: Date!
+}
+
+input ProductData {
+    idProduct: String!
+    name: String!
+    days: Int!
+}

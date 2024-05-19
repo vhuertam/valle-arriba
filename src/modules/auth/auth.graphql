@@ -1,0 +1,13 @@
+type Mutation {
+    login(input: InputLogin): LoginResponse
+}
+
+input InputLogin {
+    rut: String!
+    password: String!
+}
+
+type LoginResponse {
+    token: String!
+    user: User
+}

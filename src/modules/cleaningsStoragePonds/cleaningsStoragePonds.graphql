@@ -1,0 +1,32 @@
+type Query {
+    getCleaningsStoragePonds: [CleaningStoragePond]
+}
+
+type Mutation {
+    createCleaningStoragePond(input: InputCleaningStoragePond): CleaningStoragePond
+    editCleaningStoragePond(id: ID, input: InputCleaningStoragePondEdit): CleaningStoragePond
+    deleteCleaningStoragePond(id: ID): CleaningStoragePond
+}
+
+type CleaningStoragePond {
+    id:ID!
+    idCleaningStoragePond: String!
+    date: Date!
+    storagePond: StoragePond!
+    user: User!
+    createdAt: Date!
+    updatedAt: Date!
+    deletedAt: Date!
+}
+
+input InputCleaningStoragePond {
+    idCleaningStoragePond: String!
+    date: Date!
+    idStoragePond: String
+    idUser: String!
+}
+
+input InputCleaningStoragePondEdit {
+    idCleaningStoragePond: String!
+    date: Date!
+}

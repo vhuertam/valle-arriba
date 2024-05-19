@@ -1,0 +1,30 @@
+type Query {
+    getVarieties: [Variety]
+}
+
+type Mutation {
+    createVariety(input: InputVariety): Variety
+    editVariety(id: ID, input: InputVarietyEdit): Variety
+    deleteVariety(id: ID): Variety
+}
+
+type Variety {
+    id:ID!
+    idVariety: String!
+    name: String!
+    specie: Specie!
+    createdAt: Date!
+    updatedAt: Date!
+    deletedAt: Date!
+}
+
+input InputVariety {
+    idVariety: String!
+    name: String!
+    idSpecie: String!
+}
+
+input InputVarietyEdit {
+    idVariety: String!
+    name: String!
+}

@@ -1,0 +1,55 @@
+type Query {
+    getCards: [Card]
+}
+
+type Mutation {
+    createCard(input: InputCard): Card
+    createNCard(cant: Int, input: InputCard): Card
+    editCard(id: ID, input: InputCard): Card
+    toAssignCardToProcessBatch(id: [ID], idProcessBatch: ID): [Card]
+    toAssignProcessBatchToSaveBatch(idProcessBatch: [ID], idSaveBatch: ID): [ProcessBatch]
+    toAssignSaveBatchToTransportBatch(idSaveBatch: [ID], idTransportBatch: ID): [SaveBatch]
+    toAssignWeigthToCard(id: ID, userWeight: ID, grossWeight: Float): Card
+    deleteCard(id: ID): Card
+}
+
+type Card {
+    id: ID!
+    idCard: String!
+    date: Date!
+    quadrille: String!
+    percentageVolume: Float!
+    harvestType: String!
+    grossWeight: Float
+    contractor: String!
+    condition: String!
+    estimatedWeight: Float!
+    bins: Bin!
+    processBatch: ProcessBatch
+    userRegister: User!
+    userWeight: User
+    variety: Variety!
+    saveBatch: SaveBatch
+    transportBatch: TransportBatch
+    quarter: Quarter!
+    createdAt: Date!
+    updatedAt: Date!
+    deletedAt: Date!
+}
+
+input InputCard {
+    idCard: String!
+    date: Date!
+    quadrille: String!
+    percentageVolume: Float!
+    harvestType: String!
+    contractor: String!
+    condition: String!
+    estimatedWeight: Float!
+    idBins: String!
+    idUserRegister: String!
+    idVariety: String!
+    idQuarter: String!
+    
+}
+

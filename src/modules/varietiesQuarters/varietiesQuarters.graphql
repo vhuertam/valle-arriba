@@ -1,0 +1,24 @@
+type Query {
+    getVarietiesQuarters: [VarietyQuarter]
+}
+
+type Mutation {
+    createVarietyQuarter(input: InputVarietyQuarter): VarietyQuarter
+    editVarietyQuarter(input: InputVarietyQuarter): VarietyQuarter
+    deleteVarietyQuarter(input: InputVarietyQuarter): VarietyQuarter
+}
+
+type VarietyQuarter {
+    variety: Variety
+    quarter: Quarter
+    createdAt: Date!
+    updatedAt: Date!
+    deletedAt: Date!
+}
+
+input InputVarietyQuarter {
+    idVariety: String!
+    idQuarter: String!
+    idVarietyEdit: String
+    idQuarterEdit: String
+}

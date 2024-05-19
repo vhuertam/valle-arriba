@@ -1,0 +1,34 @@
+type Query {
+    getQuarters: [Quarter]
+}
+
+type Mutation {
+    createQuarter(input: InputQuarter): Quarter
+    editQuarter(id: ID, input: InputQuarterEdit): Quarter
+    deleteQuarter(id: ID): Quarter
+}
+
+type Quarter {
+    id:ID!
+    idQuarter: String!
+    name: String!
+    estimatedHarvestKg: Int
+    section: Section!
+    createdAt: Date!
+    updatedAt: Date!
+    deletedAt: Date!
+}
+
+input InputQuarter {
+    idQuarter: String!
+    name: String!
+    estimatedHarvestKg: Int
+    idSection: String!
+}
+
+input InputQuarterEdit {
+    idQuarter: String!
+    name: String!
+    estimatedHarvestKg: Int
+    idSection: String
+}

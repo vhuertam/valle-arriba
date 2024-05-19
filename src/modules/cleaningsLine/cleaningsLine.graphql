@@ -1,0 +1,30 @@
+type Query {
+    getCleaningsLine: [CleaningLine]
+}
+
+type Mutation {
+    createCleaningLine(input: InputCleaningLine): CleaningLine
+    editCleaningLine(id: ID, input: InputCleaningLineEdit): CleaningLine
+    deleteCleaningLine(id: ID): CleaningLine
+}
+
+type CleaningLine {
+    id:ID!
+    idCleaningLine: String!
+    date: Date!
+    user: User!
+    createdAt: Date!
+    updatedAt: Date!
+    deletedAt: Date!
+}
+
+input InputCleaningLine {
+    idCleaningLine: String!
+    date: Date!
+    idUser: String!
+}
+
+input InputCleaningLineEdit {
+    idCleaningLine: String!
+    date: Date!
+}

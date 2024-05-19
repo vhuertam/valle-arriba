@@ -1,0 +1,35 @@
+type Query {
+    getSections: [Section]
+}
+
+type Mutation {
+    createSection(input: InputSection): Section
+    editSection(id: ID, input: InputSectionEdit): Section
+    deleteSection(id: ID): Section
+}
+
+
+type Section {
+    id:ID!
+    idSection: String!
+    name: String!
+    estimatedHarvestKg: Int
+    macrozone: Macrozone!
+    createdAt: Date!
+    updatedAt: Date!
+    deletedAt: Date!
+}
+
+input InputSection {
+    idSection: String!
+    name: String!
+    estimatedHarvestKg: Int
+    idMacrozone: String!
+}
+
+input InputSectionEdit {
+    idSection: String!
+    name: String!
+    estimatedHarvestKg: Int
+    idMacrozone: String
+}

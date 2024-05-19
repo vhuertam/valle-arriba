@@ -1,0 +1,33 @@
+type Query {
+    getPelequenGuides: [PelequenGuide]
+}
+
+type Mutation {
+    createPelequenGuide(input: InputPelequenGuide): PelequenGuide
+    editPelequenGuide(id: ID, input: InputPelequenGuideEdit): PelequenGuide
+    deletePelequenGuide(id: ID): PelequenGuide
+}
+
+type PelequenGuide {
+    id:ID!
+    idPelequenGuide: String!
+    document: String!
+    name: String
+    user: User!
+    createdAt: Date!
+    updatedAt: Date!
+    deletedAt: Date!
+}
+
+input InputPelequenGuide {
+    idPelequenGuide: String!
+    document: String!
+    name: String
+    idUser: String!
+}
+
+input InputPelequenGuideEdit {
+    idPelequenGuide: String!
+    document: String!
+    name: String
+}

@@ -1,0 +1,25 @@
+scalar Date
+
+type Query {
+    getEstates: [Estate]
+}
+
+type Mutation {
+    createEstate(input: EstateData): Estate
+    editEstate(id: ID, input: EstateData): Estate
+    deleteEstate(id: ID): Estate
+}
+
+type Estate {
+    id: ID!
+    idEstate: String!
+    name: String!
+    createdAt: Date!
+    updatedAt: Date!
+    deletedAt: Date!
+}
+
+input EstateData {
+    idEstate: String!
+    name: String!
+}

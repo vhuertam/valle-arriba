@@ -1,0 +1,25 @@
+scalar Date
+
+type Query {
+    getSpecies: [Specie]
+}
+
+type Mutation {
+    createSpecie(input: SpecieData): Specie
+    editSpecie(id: ID, input: SpecieData): Specie
+    deleteSpecie(id: ID): Specie
+}
+
+type Specie {
+    id: ID!
+    idSpecie: String!
+    name: String!
+    createdAt: Date!
+    updatedAt: Date!
+    deletedAt: Date!
+}
+
+input SpecieData {
+    idSpecie: String!
+    name: String!
+}

@@ -1,0 +1,32 @@
+type Query {
+    getMacrozones: [Macrozone]
+}
+
+type Mutation {
+    createMacrozone(input: InputMacrozone): Macrozone
+    editMacrozone(id: ID, input: InputMacrozoneEdit): Macrozone
+    deleteMacrozone(id: ID): Macrozone
+}
+
+
+type Macrozone {
+    id:ID!
+    idMacrozone: String!
+    name: String!
+    estate: Estate
+    createdAt: Date!
+    updatedAt: Date!
+    deletedAt: Date!
+}
+
+input InputMacrozone {
+    idMacrozone: String!
+    name: String!
+    idEstate: String!
+}
+
+input InputMacrozoneEdit {
+    idMacrozone: String!
+    name: String!
+    idEstate: String
+}

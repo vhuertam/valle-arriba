@@ -1,0 +1,24 @@
+type Query {
+    getPhytosanitaryRegistersProducts: [PhytosanitaryRegisterProduct]
+}
+
+type Mutation {
+    createPhytosanitaryRegisterProduct(input: InputPhytosanitaryRegisterProduct): PhytosanitaryRegisterProduct
+    editPhytosanitaryRegisterProduct(input: InputPhytosanitaryRegisterProduct): PhytosanitaryRegisterProduct
+    deletePhytosanitaryRegisterProduct(input: InputPhytosanitaryRegisterProduct): PhytosanitaryRegisterProduct
+}
+
+type PhytosanitaryRegisterProduct {
+    phytosanitaryRegister: PhytosanitaryRegister
+    product: Product
+    createdAt: Date!
+    updatedAt: Date!
+    deletedAt: Date!
+}
+
+input InputPhytosanitaryRegisterProduct {
+    idPhytosanitaryRegister: String!
+    idProduct: String!
+    idPhytosanitaryRegisterEdit: String
+    idProductEdit: String
+}

@@ -1,0 +1,26 @@
+scalar Date
+
+type Query {
+    getBins: [Bin]
+}
+
+type Mutation {
+    createBins(input: BinData): Bin
+    editBins(id: ID, input: BinData): Bin
+    deleteBins(id: ID): Bin
+    changeBinsAvailable(id: ID): Bin
+    changeBinsNotAvailable(id: ID): Bin
+}
+
+type Bin {
+    id: ID!
+    idBins: String!
+    status: Boolean!
+    createdAt: Date!
+    updatedAt: Date!
+    deletedAt: Date!
+}
+
+input BinData {
+    idBins: String!
+}

@@ -1,0 +1,33 @@
+type Query {
+    getTransportBatchs: [TransportBatch]
+}
+
+type Mutation {
+    createTransportBatch(input: InputTransportBatch): TransportBatch
+    editTransportBatch(id: ID, input: InputTransportBatchEdit): TransportBatch
+    deleteTransportBatch(id: ID): TransportBatch
+    toAssignTransportBatchToPelequenGuide(id: ID, idPelequenGuide: ID): TransportBatch
+}
+
+type TransportBatch {
+    id:ID!
+    idTransportBatch: String
+    date: Date!
+    pelequenGuide: PelequenGuide
+    user: User!
+    createdAt: Date!
+    updatedAt: Date!
+    deletedAt: Date!
+}
+
+input InputTransportBatch {
+    idTransportBatch: String!
+    date: Date!
+    idPelequenGuide: String
+    idUser: String!
+}
+
+input InputTransportBatchEdit {
+    idTransportBatch: String!
+    date: Date!
+}

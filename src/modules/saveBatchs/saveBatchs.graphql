@@ -1,0 +1,41 @@
+type Query {
+    getSaveBatchs: [SaveBatch]
+}
+
+type Mutation {
+    createSaveBatch(input: InputSaveBatch): SaveBatch
+    editSaveBatch(id: ID, input: InputSaveBatchEdit): SaveBatch
+    deleteSaveBatch(id: ID): SaveBatch
+    toAssignLitersToSaveBatch(id: ID, user: ID, totalLiters: Float): SaveBatch
+}
+
+type SaveBatch {
+    id:ID!
+    idSaveBatch: String
+    date: Date!
+    totalLiters: Float
+    condition: String
+    storagePond: StoragePond!
+    user: User!
+    transportBatch: TransportBatch
+    createdAt: Date!
+    updatedAt: Date!
+    deletedAt: Date!
+}
+
+input InputSaveBatch {
+    idSaveBatch: String!
+    date: Date!
+    totalLiters: Float
+    condition: String!
+    idStoragePond: String!
+    idUser: String!
+    idTransportBatch: String
+}
+
+input InputSaveBatchEdit {
+    idSaveBatch: String!
+    date: Date!
+    totalLiters: Float
+    condition: String!
+}

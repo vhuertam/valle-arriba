@@ -1,0 +1,39 @@
+type Query {
+    getProcessBatchs: [ProcessBatch]
+}
+
+type Mutation {
+    createProcessBatch(input: InputProcessBatch): ProcessBatch
+    editProcessBatch(id: ID, input: InputProcessBatchEdit): ProcessBatch
+    deleteProcessBatch(id: ID): ProcessBatch
+    toAssignWeigthToProcessBatch(id: ID, residualWeight: Int): ProcessBatch
+    toAssignLitersToProcessBatch(id: ID, generatedLiters: Int): ProcessBatch
+}
+
+type ProcessBatch {
+    id:ID!
+    idProcessBatch: String
+    date: Date!
+    condition: String
+    residualWeight: Int
+    generatedLiters: Int
+    user: User!
+    saveBatch: SaveBatch
+    createdAt: Date!
+    updatedAt: Date!
+    deletedAt: Date!
+}
+
+input InputProcessBatch {
+    idProcessBatch: String!
+    date: Date!
+    condition: String!
+    idUser: String!
+    idSaveBatch: String!
+}
+
+input InputProcessBatchEdit {
+    idProcessBatch: String!
+    date: Date!
+    condition: String!
+}
